@@ -1,0 +1,45 @@
+$gap: 16px;
+$columns: 24;
+
+// Дальше не трогаем
+$half-gap: $gap / 2;
+
+.grid {
+  padding: $gap;
+}
+
+// Внутри .col не сработает обычный цикл
+@mixin spans-and-offsets($n) {
+  $unit: 100% / $n;
+  @for $i from 1 through $n {
+    $size: $unit * $i;
+
+    &.span-#{$i} {
+      flex-basis: $size;
+      // Если не задать максимальную ширину колонка будет рваться
+      max-width: $size;
+    }
+
+    &.offset-#{$i} {
+      margin-left: $size;
+    }
+  }
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 (-$half-gap);
+  .col {
+    flex: 0 0 auto;
+    padding: 0 $half-gap;
+    @include spans-and-offsets($columns);
+    // Колонка растягивается в высоту
+    // align-self: stretch;
+  }
+
+  // Вертикальное выравнивание по центру
+  &.align-center {
+    align-items: center;
+  }
+}

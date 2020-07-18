@@ -1,0 +1,71 @@
+@import "mixins";
+@import "transitions";
+@import "colors";
+@import "font";
+@import "utils";
+@import "grid";
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: $font-family-default;
+  font-size: $font-size-default;
+  line-height: $line-height-default;
+  font-weight: $font-weight-normal;
+  color: $color-text;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -moz-font-feature-settings: "liga" on;
+  background: #383f48;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    width: 8px;
+    background-color: #e8ecee;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #bac5cd
+  }
+}
+
+.page {
+  background: #383f48;
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+body.no-scroll-mobile {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+button {
+  outline: none;
+}
+
+@mixin svg ($color) {
+  svg {
+    .fill {
+      fill: $color;
+      transition: fill ease 0.3s
+    }
+    .stroke {
+      stroke: $color;
+      transition: stroke ease 0.3s
+    }
+  }
+}

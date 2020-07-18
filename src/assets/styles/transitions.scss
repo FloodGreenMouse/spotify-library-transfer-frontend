@@ -1,0 +1,64 @@
+$trs2: all ease 0.2s;
+$trs3: all ease 0.3s;
+$trs5: all ease 0.5s;
+
+.loader-enter-active, .loader-leave-active {
+  transition: transform 0.5s ease;
+}
+
+.loader-enter, .loader-leave-to {
+  transform: translateY(-105%);
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s ease;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+
+.fadeFast-enter-active, .fadeFast-leave-active {
+  transition: opacity .2s ease;
+}
+
+.fadeFast-enter, .fadeFast-leave-to {
+  opacity: 0;
+}
+
+.fadeDown-enter, .fadeDown-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.fadeDown-enter-active, .fadeDown-leave-active {
+  transition: opacity .3s ease, transform .3s ease;
+}
+
+.slide-enter-active {
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in;
+}
+
+.slide-leave-active {
+  transition-duration: 0.3s;
+  transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+
+.slide-enter-to, .slide-leave {
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+.slide-enter, .slide-leave-to {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+}
+
+.page-enter-active, .page-leave-active {
+  transition: opacity 0s
+}
+.page-enter, .page-leave-active {
+  opacity: 0
+}
